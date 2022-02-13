@@ -3,13 +3,14 @@ package com.sda.ramona.bookManagement.utils;
 
 import com.sda.ramona.bookManagement.model.Author;
 import com.sda.ramona.bookManagement.model.Book;
+import com.sda.ramona.bookManagement.model.Review;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SessionManager extends AbstractSessionManager{
 
-    private static final SessionManager INSTANCE =new SessionManager();// singletone pattern
-    // static -am o singura clasa / final- nu se poate schimba
+public class SessionManager extends AbstractSessionManager {
+
+    private static final SessionManager INSTANCE = new SessionManager();
 
     private SessionManager() {
 
@@ -25,7 +26,8 @@ public class SessionManager extends AbstractSessionManager{
 
     @Override
     protected void setAnnotatedClasses(Configuration configuration) {
-      configuration.addAnnotatedClass(Author.class);
-      configuration.addAnnotatedClass(Book.class);
+        configuration.addAnnotatedClass(Author.class);
+        configuration.addAnnotatedClass(Book.class);
+        configuration.addAnnotatedClass(Review.class);
     }
 }
